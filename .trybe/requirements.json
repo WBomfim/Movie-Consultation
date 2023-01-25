@@ -1,0 +1,64 @@
+{
+  "requirements": [
+    {
+      "description": "Consulta 1 - consulta com base em coleção vazia deve retornar um conjunto vazio",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 1 - consulta deve retornar um conjunto vazio quando nenhum ator atende ao requisito",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 1 - consulta deve retornar resultados corretos",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 2 - consulta com base em coleção vazia deve retornar uma lista vazia",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 2 - consulta deve retornar uma lista vazia quando nenhum ator atende ao requisito",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 2 - consulta deve retornar resultados corretos na ordem correta",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 2 - nenhum ator deve aparecer mais de uma vez na lista de resultados",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 3 - consulta com base em coleção vazia deve retornar uma lista vazia",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 3 - consulta deve retornar uma lista vazia quando nenhum filme atende ao requisito",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 3 - consulta deve retornar resultados corretos na ordem correta",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 3 - nenhum filme deve aparecer mais de uma vez na lista de resultados",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 4 - consulta com base em coleção vazia deve retornar um Map vazio",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 4 - consulta deve retornar um Map vazio quando nenhum filme atende ao requisito",
+      "bonus": false
+    },
+    {
+      "description": "Consulta 4 - consulta deve retornar resultados corretos",
+      "bonus": true
+    },
+    {
+      "description": "Consulta 4 - filme que atende os requisitos e pertence a mais de uma categoria deve aparecer em todas elas",
+      "bonus": true
+    }
+  ]
+}
