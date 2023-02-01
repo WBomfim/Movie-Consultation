@@ -5,10 +5,16 @@ import static java.util.Collections.emptyMap;
 import static java.util.Collections.emptySet;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+/**
+ * Class Consultas.
+ *
+ */
 public class Consultas {
 
   private final Collection<Filme> filmes;
@@ -17,6 +23,30 @@ public class Consultas {
     this.filmes = filmes;
   }
 
+  /*
+   Comentário para fins didáticos:
+   Outras opções para resolver o mesmo problema:
+    Set<String> atores = new HashSet<>();
+    for (Filme filme : filmes) {
+      for (String personagem : filme.atoresPorPersonagem.keySet()) {
+        if (filme.atoresPorPersonagem.get(personagem).contains(personagem)) {
+          atores.add(personagem);
+        }
+      }
+    }
+    return atores;
+
+    ou
+    
+    Set<String> atores = new HashSet<>();
+    for (Filme filme : filmes) {
+      atores.addAll(filme.atoresPorPersonagem.entrySet().stream()
+          .filter(entry -> entry.getValue().contains(entry.getKey()))
+          .map(key -> key.getKey())
+          .collect(Collectors.toSet()));
+    }
+    return atores;
+  */
   /**
    * Consulta 1: a partir da coleção de filmes desta classe, este método retorna o conjunto
    * de atores que interpretaram a si próprios em pelo menos um desses filmes.
@@ -26,7 +56,13 @@ public class Consultas {
    * conjunto associado a esta mesma chave.</p>
    */
   public Set<String> atoresQueInterpretaramSiProprios() {
-    return emptySet(); // TODO: Implementar.
+    Set<String> atores = filmes.stream()
+        .flatMap(f -> f.atoresPorPersonagem.entrySet().stream())
+        .filter(e -> e.getValue().contains(e.getKey()))
+        .map(ator -> ator.getKey())
+        .collect(Collectors.toSet());
+
+    return atores;
   }
 
   /**
