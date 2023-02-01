@@ -90,7 +90,11 @@ public class Consultas {
    * pelo menos um dos itens do campo `diretores` também é um item do campo `atores`.</p>
    */
   public List<Filme> filmesEmQuePeloMenosUmDiretorAtuouMaisRecentesPrimeiro() {
-    return emptyList(); // TODO: Implementar.
+    return filmes.stream()
+        .filter(f -> f.diretores.stream().anyMatch(d -> f.atores.contains(d)))
+        .distinct()
+        .sorted((f1, f2) -> f2.anoDeLancamento - f1.anoDeLancamento)
+        .collect(Collectors.toList());
   }
 
   /**
