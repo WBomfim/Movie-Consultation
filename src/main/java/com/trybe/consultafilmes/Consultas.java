@@ -56,13 +56,11 @@ public class Consultas {
    * conjunto associado a esta mesma chave.</p>
    */
   public Set<String> atoresQueInterpretaramSiProprios() {
-    Set<String> atores = filmes.stream()
+    return filmes.stream()
         .flatMap(f -> f.atoresPorPersonagem.entrySet().stream())
         .filter(e -> e.getValue().contains(e.getKey()))
         .map(ator -> ator.getKey())
         .collect(Collectors.toSet());
-
-    return atores;
   }
 
   /**
@@ -75,7 +73,12 @@ public class Consultas {
    * tem o seu nome como um dos itens do campo `diretores` do mesmo filme.</p>
    */
   public List<String> atoresQueAtuaramEmFilmesDoDiretorEmOrdemAlfabetica(String diretor) {
-    return emptyList(); // TODO: Implementar.
+    return filmes.stream()
+        .filter(f -> f.diretores.contains(diretor))
+        .flatMap(f -> f.atores.stream())
+        .distinct()
+        .sorted()
+        .collect(Collectors.toList());
   }
 
   /**
